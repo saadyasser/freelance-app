@@ -17,7 +17,7 @@ const Logo = styled.header`
     margin: 0;
   }
 
-  @media screen and (min-width: 992px) and (max-width: 1920px) {
+  @media screen and (min-width: 992px) and (max-width: 1919px) {
     margin-bottom: 30px;
     & img {
       width: 100px;

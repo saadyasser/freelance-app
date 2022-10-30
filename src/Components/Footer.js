@@ -20,7 +20,7 @@ const FooterStyled = styled.footer`
     font-size: 18px;
     line-height: 1.333;
   }
-  @media screen and (min-width: 992px) and (max-width: 1920px) {
+  @media screen and (min-width: 992px) and (max-width: 1919px) {
     padding-left: 80px;
     li {
       padding-right: 50px;

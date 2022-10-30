@@ -16,7 +16,7 @@ const Button = styled.button`
   background-color: ${(props) =>
     props.isValid ? '#4375ff' : 'rgba(67,117,255,.8)'};
   border-radius: 7px;
-  @media screen and (min-width: 992px) and (max-width: 1920px) {
+  @media screen and (min-width: 992px) and (max-width: 1919px) {
     border-radius: 5px;
     margin-top: 40px;
     font-size: 18px;

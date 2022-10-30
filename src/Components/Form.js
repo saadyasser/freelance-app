@@ -22,7 +22,7 @@ const Form = styled.form`
     text-decoration: none;
     color: #4375ff;
   }
-  @media screen and (min-width: 992px) and (max-width: 1920px) {
+  @media screen and (min-width: 992px) and (max-width: 1919px) {
     h2 {
       font-size: 18px;
       line-height: 20px;

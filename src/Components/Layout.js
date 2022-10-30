@@ -15,7 +15,7 @@ const Layout = styled.section`
     align-items: center;
   }
 
-  @media screen and (min-width: 992px) and (max-width: 1920px) {
+  @media screen and (min-width: 992px) and (max-width: 1919px) {
     padding-top: 60px;
     padding-bottom: 15px;
   }
