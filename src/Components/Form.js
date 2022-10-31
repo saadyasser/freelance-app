@@ -29,6 +29,7 @@ const Form = styled.form`
   }
   p a {
     text-decoration: none;
+    padding-left: 5px;
     color: #4375ff;
   }
   @media screen and (min-width: 992px) and (max-width: 1919px) {
