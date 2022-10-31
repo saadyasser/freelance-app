@@ -4,9 +4,9 @@ import validate from '../helpers/validate';
 const useFetch = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(200);
-  
 
   const sendRequest = async (requestConfig, responseHandler) => {
+    console.log(requestConfig.body);
     const response = await fetch(requestConfig.url, {
       method: 'POST',
       body: requestConfig.body,
@@ -19,12 +19,10 @@ const useFetch = () => {
       responseHandler(422);
       setLoading(false);
     } else {
-      //   console.log(400);
-      responseHandler(400);
+      const data = await response.json();
+      responseHandler(data);
       setLoading(false);
     }
-    // const data = await response.json();
-    // responseHandler(data);
   };
   return [loading, error, sendRequest];
 };

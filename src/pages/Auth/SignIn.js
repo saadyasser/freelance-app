@@ -8,7 +8,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { IoIosWarning } from 'react-icons/io';
 import { IconContext } from 'react-icons';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../../AuthContext/AuthContext';
 import useFetch from '../../hooks/useFetch';
@@ -16,9 +16,11 @@ import useForm from '../../hooks/useForm';
 import validate from '../../helpers/validate';
 import InputStyle from '../../Components/Input/InputStyle';
 import Input from '../../Components/Input/Input';
+import SignUp from './SignUp';
 
 const SignIn = () => {
   const [errorSubmit, setErrorSubmit] = useState('');
+  const navigate = useNavigate();
   const {
     values,
     valuesChangeHandler,
@@ -50,8 +52,6 @@ const SignIn = () => {
 
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const navigate = useNavigate();
-
   const login = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(true);
@@ -74,7 +74,7 @@ const SignIn = () => {
         password: true,
       });
     } else if (data === 400) {
-      setErrorSubmit('incorrect login credentials');
+      console.log(data);
     } else {
       localStorage.setItem('token', data['data'].accessToken);
       login.setTokenId(data['data'].accessToken);
@@ -106,9 +106,7 @@ const SignIn = () => {
           </Logo>
           <Form onSubmit={submitHandler}>
             <h2>Login To Your Account</h2>
-            <InputStyle
-              isError={errorSubmit || (touched.email && errors.email)}
-            >
+            <InputStyle>
               <Input
                 id="email"
                 type="email"
@@ -118,6 +116,7 @@ const SignIn = () => {
                 bluredHandler={inputBlurHandler}
                 label="Email"
                 placeholder="Enter Email"
+                isError={errorSubmit || (touched.email && errors.email)}
               >
                 <div className="validation">
                   <p>
@@ -131,9 +130,7 @@ const SignIn = () => {
                 </div>
               </Input>
             </InputStyle>
-            <InputStyle
-              isError={errorSubmit || (touched.password && errors.password)}
-            >
+            <InputStyle>
               <Input
                 id="password"
                 type={showPassword ? 'password' : 'text'}
@@ -143,6 +140,7 @@ const SignIn = () => {
                 bluredHandler={inputBlurHandler}
                 label="Password"
                 placeholder="Enter Password"
+                isError={errorSubmit || (touched.password && errors.password)}
               >
                 {showPassword ? (
                   <IconContext.Provider value={{ className: 'password-icon' }}>
@@ -170,16 +168,18 @@ const SignIn = () => {
                       </>
                     )}
                   </p>
-                  <a className="link">Forgot Password?</a>
+                  <Link to="/forget-password" className="link">
+                    Forgot Password?
+                  </Link>
                 </div>
               </Input>
             </InputStyle>
             <Button disabled={!isValid} isValid={isValid}>
-              Sign In
+              {loading ? 'Signing...' : 'Sign In'}
             </Button>
 
             <p>
-              Already have an account? <a href="/">Sign in</a>
+              Dont have an acount? <Link to="/signup">Sign up</Link>
             </p>
           </Form>
         </div>

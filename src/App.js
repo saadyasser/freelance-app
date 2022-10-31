@@ -1,11 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
+import ForgetPassword from './pages/Auth/ForgetPassword';
 import SignIn from './pages/Auth/SignIn';
+import SignUp from './pages/Auth/SignUp';
+import VerifyCode from './pages/Auth/VerifyCode';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
+      <Route
+        path="/"
+        element={
+          <>
+            <h1>Home</h1>
+            <Link to="/signin">Sign In</Link>
+            <br />
+            <Link to="/signup">Sign Up</Link>
+          </>
+        }
+      />
       <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/forget-password" element={<ForgetPassword />} />
+      <Route path="/verify-code" element={<VerifyCode />} />
+      <Route path="/verify" element={<h1>Verfication</h1>} />
     </Routes>
   );
   // const [phone, setPhone] = useState('');

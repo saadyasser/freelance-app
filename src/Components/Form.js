@@ -10,6 +10,15 @@ const Form = styled.form`
     margin-bottom: 34px;
     color: #000;
   }
+  .description {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #707070;
+    margin-bottom: 30px;
+    margin-top: 0;
+    text-align: left;
+  }
   p {
     text-align: center;
     font-size: 16px;

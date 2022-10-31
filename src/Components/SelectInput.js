@@ -51,11 +51,13 @@ const SelectElement = styled.div`
     z-index: 2;
   }
   .select.open .custom-options {
-    height: 200px;
+    color: #707070;
+    height: 150px;
     overflow-y: scroll;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
+    border-radius: 0 0 7px 7px;
   }
   .custom-option {
     position: relative;

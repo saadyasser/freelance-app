@@ -30,17 +30,24 @@ const FooterStyled = styled.footer`
       line-height: 1;
     }
   }
-  @media screen and (max-width: 992px) {
+  @media screen and (min-width: 768px) and (max-width: 992px) {
     width: 96%;
     margin: 0 auto;
     padding: 0;
-
-    ul {
-      display: flex;
-      justify-content: space-between;
-    }
     li {
-      padding-right: 0px;
+      padding-right: 20px;
+    }
+    a {
+      font-size: 18px;
+      line-height: 1;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 96%;
+    margin: 0 auto;
+    padding: 0;
+    li {
+      padding-right: 20px;
     }
     a {
       font-size: 14px;

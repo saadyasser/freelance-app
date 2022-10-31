@@ -5,11 +5,31 @@ const InputStyle = styled.div`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 35px;
   width: 100%;
-  &.col-6 {
+
+  &.inline-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  &.inline-inputs .flex-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  &.inline-inputs input {
+    text-align: center;
+    padding-left: 0;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 2px 2px #00000029;
+    border-radius: 5px;
+  }
+  & .col-6 {
     display: flex;
     gap: 32px;
   }
-  &.col-6 .form-input {
+  & .col-6 .form-input {
     flex-basis: 50%;
   }
   .form-input {
@@ -33,10 +53,13 @@ const InputStyle = styled.div`
     border-radius: 7px;
     font-size: 18px;
     line-height: 24px;
-    border: 1px solid ${(props) => (props.isError ? '#F50000' : '#bec2c6')};
+    border: 1px solid #bec2c6;
     color: #000;
     padding: 18px 0 18px 16px;
     transition: box-shadow ease 0.25s, border-color ease 0.25s;
+  }
+  input.Invalid {
+    border: 1px solid #f50000;
   }
   input:focus {
     border: 1px solid #4375ff;
@@ -54,12 +77,20 @@ const InputStyle = styled.div`
   .validation p {
     display: flex;
     align-items: center;
+    margin-top: 0;
+    color: #ee404c;
   }
   .validation p {
     gap: 5px;
   }
   .validation p {
     flex-basis: 60%;
+  }
+  & .col-6 .validation p {
+    flex-basis: 100%;
+  }
+  & .col-6 .validation .link {
+    flex-basis: 0%;
   }
   .validation .link {
     flex-basis: 40%;
@@ -135,6 +166,13 @@ const InputStyle = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-bottom: 17px;
+    & .col-6 {
+      flex-direction: column;
+      gap: 17px;
+    }
+    & .col-6 .form-input {
+      flex-basis: 100%;
+    }
     label {
       font-size: 15px;
       line-height: 15px;

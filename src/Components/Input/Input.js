@@ -10,11 +10,18 @@ const Input = ({
   touched,
   label,
   children,
+  isError,
 }) => {
+  let classes = '';
+
+  if (isError) {
+    classes = 'Invalid';
+  }
   return (
     <div className="form-input">
       <label htmlFor={id}>{label}</label>
       <input
+        className={classes}
         id={id}
         type={type}
         name={name}
